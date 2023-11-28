@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:id="@+id/mHome"
+        android:title="Trang Chủ"
+        android:icon="@drawable/home"/>
+    <item android:id="@+id/mPhim"
+        android:title="Phim"
+        android:icon="@drawable/film"/>
+    <group android:checkableBehavior="single">
+        <item android:title="Chức Năng">
+            <menu>
+                <item android:id="@+id/mQLTaiKhoan"
+                    android:title="Quản Lý Tài Khoản"
+                    android:icon="@drawable/user"/>
+                <item android:id="@+id/mTheLoai"
+                    android:icon="@drawable/theloai"
+                    android:title="Quản Lý Thể Loại" />
+                <item android:id="@+id/mXuatChieu"
+                    android:icon="@drawable/xuatchieu"
+                    android:title="Quản Lý Xuất Chiếu" />
+                <item android:id="@+id/mDoiMK"
+                    android:icon="@drawable/dmk"
+                    android:title="Đổi Mật Khẩu" />
+                <item
+                    android:id="@+id/mThoat"
+                    android:title="Đăng xuất"
+                    android:icon="@drawable/exit"/>
+            </menu>
+        </item>
+    </group>
+
+</menu>
