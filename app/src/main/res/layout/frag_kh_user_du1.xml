@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+    <LinearLayout
+        android:gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <ImageView
+            android:layout_width="150dp"
+            android:layout_height="200dp"/>
+    </LinearLayout>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="THÔNG TIN CỦA YOU"
+        android:gravity="center"
+        android:textColor="@color/black"
+        android:textSize="25dp"/>
+    <View
+        android:layout_margin="5dp"
+        android:layout_gravity="center"
+        android:layout_width="100dp"
+        android:layout_height="2dp"
+        android:background="@color/black"/>
+
+
+        <LinearLayout
+            android:padding="10dp"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <LinearLayout
+                android:padding="5dp"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+                <ImageView
+                    android:src="@drawable/user"
+                    android:layout_width="40dp"
+                    android:layout_height="55dp"/>
+                <TextView
+                    android:id="@+id/txtTTUser"
+                    android:padding="10dp"
+                    android:textColor="@color/black"
+                    android:textSize="25dp"
+                    android:text="Thông tin cá nhân"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:padding="5dp"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+                <ImageView
+                    android:src="@drawable/dmk"
+                    android:layout_width="40dp"
+                    android:layout_height="55dp"/>
+                <TextView
+                    android:id="@+id/txtDoiMK"
+                    android:padding="10dp"
+                    android:textColor="@color/black"
+                    android:textSize="25dp"
+                    android:text="Đổi Mật Khẩu"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
+            </LinearLayout>
+            <LinearLayout
+                android:padding="10dp"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+                <ImageView
+                    android:src="@drawable/phone"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"/>
+                <TextView
+                    android:id="@+id/txtLienHe"
+                    android:padding="10dp"
+                    android:textColor="@color/black"
+                    android:textSize="25dp"
+                    android:text="Liên Hệ"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:padding="10dp"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <ImageView
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:src="@drawable/exit" />
+
+                <TextView
+                    android:id="@+id/txtDangXuat"
+                    android:padding="10dp"
+                    android:textColor="@color/black"
+                    android:textSize="25dp"
+                    android:text="Đăng Xuất"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
+            </LinearLayout>
+
+
+        </LinearLayout>
+    </LinearLayout>

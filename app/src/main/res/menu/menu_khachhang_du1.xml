@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:id="@+id/mTrangChu_kh"
+        android:title="Home"
+        android:icon="@drawable/home"
+        />
+    <item android:id="@+id/mphim_kh"
+        android:title="Phim"
+        android:icon="@drawable/film"
+        />
+    <item android:id="@+id/mVe"
+        android:title="Vé"
+        android:icon="@drawable/ve"/>
+    <item android:id="@+id/mUser"
+        android:title="Account"
+        android:icon="@drawable/user"/>
+
+<!--    <item
+        android:id="@+id/mDatVea"
+        android:icon="@drawable/ic_baseline_shopping_cart_24"
+        android:title="Đặt Vé"/>-->
+</menu>
