@@ -1,5 +1,11 @@
 package anhntph36936.fpoly.datvexemphim.Main;
 
+import android.content.DialogInterface;
+import android.content.Intent;
+import android.os.Bundle;
+import android.view.MenuItem;
+import android.widget.FrameLayout;
+
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AlertDialog;
@@ -8,21 +14,14 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.FragmentManager;
 
-import android.content.DialogInterface;
-import android.content.Intent;
-import android.os.Bundle;
-import android.view.MenuItem;
-import android.widget.FrameLayout;
-
 import com.google.android.material.navigation.NavigationView;
 
 import anhntph36936.fpoly.datvexemphim.Frag_Adm_du1.Frag_Adm_DMK_du1;
 import anhntph36936.fpoly.datvexemphim.Frag_Adm_du1.Frag_Adm_Phim_du1;
-import anhntph36936.fpoly.datvexemphim.Frag_Adm_du1.Frag_Adm_QLXC_du1;
 import anhntph36936.fpoly.datvexemphim.Frag_Adm_du1.Frag_Adm_QLTK_du1;
 import anhntph36936.fpoly.datvexemphim.Frag_Adm_du1.Frag_Adm_QLTL_du1;
+import anhntph36936.fpoly.datvexemphim.Frag_Adm_du1.Frag_Adm_QLXC_du1;
 import anhntph36936.fpoly.datvexemphim.Frag_Adm_du1.Frag_Adm_Trangchu_du1;
-import anhntph36936.fpoly.datvexemphim.MainActivity;
 import anhntph36936.fpoly.datvexemphim.R;
 
 public class Main_Adm_du1 extends AppCompatActivity {
@@ -84,7 +83,7 @@ public class Main_Adm_du1 extends AppCompatActivity {
         builder.setPositiveButton("Thoát", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
-                startActivity(new Intent(Main_Adm_du1.this, MainActivity.class));
+                startActivity(new Intent(Main_Adm_du1.this, DangNhap_du1.class));
                 finish();
             }
         });

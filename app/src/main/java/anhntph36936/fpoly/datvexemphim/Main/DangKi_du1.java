@@ -1,13 +1,13 @@
 package anhntph36936.fpoly.datvexemphim.Main;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import anhntph36936.fpoly.datvexemphim.DAO.ThanhVien_Dao_du1;
 import anhntph36936.fpoly.datvexemphim.R;
@@ -32,8 +32,8 @@ public class DangKi_du1 extends AppCompatActivity {
         btnDangKiDK.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String email = edEmailDK.getText().toString();
                 String sdt = edSdtDK.getText().toString();
+                String email = edEmailDK.getText().toString();
                 String user = edUserDK.getText().toString();
                 String pass = edPassDK.getText().toString();
                 checkRong(edEmailDK);
@@ -41,7 +41,7 @@ public class DangKi_du1 extends AppCompatActivity {
                 checkRong(edUserDK);
                 checkRong(edPassDK);
 
-                boolean check = thanhVien_dao_du1.themThanhVien(email, sdt, user, pass, "khachhang");
+                boolean check = thanhVien_dao_du1.themThanhVien(sdt, email, user, pass, "khachhang");
                 if(check == true){
                     Toast.makeText(DangKi_du1.this, "Đăng kí thành công !", Toast.LENGTH_SHORT).show();
                 } else {

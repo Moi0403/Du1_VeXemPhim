@@ -48,7 +48,7 @@ public class Adm_ADT_QLTKhoan extends RecyclerView.Adapter<Adm_ADT_QLTKhoan.View
         String matkhau = sharedPreferences.getString("matkhau", "");
         String loaitaikhoan = sharedPreferences.getString("loaitaikhoan", "");
 
-        holder.txtMaTV.setText(list_tv.get(position).getMatv());
+        holder.txtMaTV.setText(list_tv.get(position).getMatv() +"");
         holder.txtSDT.setText("Số Điện Thoại: " + list_tv.get(position).getSdt());
         holder.txtEmail.setText("Email: " + list_tv.get(position).getEmail());
         holder.txtHoTen.setText("Họ Tên: " + list_tv.get(position).getTentv());

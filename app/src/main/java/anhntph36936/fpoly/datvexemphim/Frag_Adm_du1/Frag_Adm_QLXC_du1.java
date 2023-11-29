@@ -39,6 +39,7 @@ public class Frag_Adm_QLXC_du1 extends Fragment {
         btnSua = view.findViewById(R.id.btnSua);
 
         xuatChieuDAO = new XuatChieu_Dao_du1(getContext());
+        loadData();
         btnThem.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -68,7 +69,6 @@ public class Frag_Adm_QLXC_du1 extends Fragment {
                 }else {
                     XuatChieu_Model_du1 xuatChieu = new XuatChieu_Model_du1(maxuatchieu, ngaychieu, thoigianchieu);
                     if (xuatChieuDAO.capNhatXuatChieu(xuatChieu)) {
-                        loadData();
                         edtNgayChieu.setText("");
                         edtThoiGianChieu.setText("");
                         //Toast.makeText(getContext(), ""+ tenloai, Toast.LENGTH_SHORT).show();

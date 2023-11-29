@@ -52,7 +52,7 @@ public class Frag_Adm_QLTL_du1 extends Fragment {
                         loadData();
                         edtTheLoai.setText("");
                     } else {
-                        Toast.makeText(getContext(), "Thêm thể loại thất bại thất bại", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getContext(), "Thêm không thành công !", Toast.LENGTH_SHORT).show();
                     }
                 }
             }

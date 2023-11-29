@@ -4,14 +4,13 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:gravity="center"
-    android:padding="10dp"
-    android:background="@drawable/nenchao">
+    android:padding="10dp">
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="THÊM THỂ LOẠI"
-        android:textColor="#F48FB1"
+        android:textColor="#80DEEA"
         android:textSize="30sp"
         android:textStyle="bold" />
 
