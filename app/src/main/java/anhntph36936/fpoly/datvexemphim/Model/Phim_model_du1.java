@@ -10,7 +10,7 @@ public class Phim_model_du1 {
     private int maxuatchieu;
     private int maloai;
 
-    public Phim_model_du1(int maphim, String tenphim, String hinhanh, String tenloai, String thoigianchieu, String ngaychieu, int maxuatchieu, int maloai) {
+    public Phim_model_du1(int maphim, String tenphim, String hinhanh, String tenloai, String thoigianchieu, String ngaychieu) {
         this.maphim = maphim;
         this.tenphim = tenphim;
         this.hinhanh = hinhanh;
