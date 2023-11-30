@@ -6,7 +6,7 @@ import android.database.sqlite.SQLiteOpenHelper;
 
 public class DB_Helper_du1 extends SQLiteOpenHelper {
     static String DB_NAME = "du1_vexemphim";
-    static int DB_VERSION = 1;
+    static int DB_VERSION = 2;
 
     public DB_Helper_du1(Context context) {
         super(context, DB_NAME, null, DB_VERSION);
