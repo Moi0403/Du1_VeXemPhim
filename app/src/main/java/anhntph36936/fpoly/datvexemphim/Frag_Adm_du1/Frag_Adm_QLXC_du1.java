@@ -39,6 +39,7 @@ public class Frag_Adm_QLXC_du1 extends Fragment {
         btnSua = view.findViewById(R.id.btnSua);
 
         xuatChieuDAO = new XuatChieu_Dao_du1(getContext());
+        loadData();
         btnThem.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -48,7 +49,6 @@ public class Frag_Adm_QLXC_du1 extends Fragment {
                     Toast.makeText(getContext(), "Nhập đầy đủ thông tin", Toast.LENGTH_SHORT).show();
                 }else {
                     if (xuatChieuDAO.themXuatChieu(ngaychieu, thoigianchieu)) {
-                        loadData();
                         edtNgayChieu.setText("");
                         edtThoiGianChieu.setText("");
                     } else {
