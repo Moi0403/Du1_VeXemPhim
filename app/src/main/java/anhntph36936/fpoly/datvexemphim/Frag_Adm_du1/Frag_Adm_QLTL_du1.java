@@ -16,7 +16,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
 
-import anhntph36936.fpoly.datvexemphim.Adapter.Adm_ADT_QLTheLoai;
+import anhntph36936.fpoly.datvexemphim.Adapter_Adm.Adm_ADT_QLTheLoai;
 import anhntph36936.fpoly.datvexemphim.DAO.TheLoai_Dao_du1;
 import anhntph36936.fpoly.datvexemphim.Model.ItemClick_TheLoai;
 import anhntph36936.fpoly.datvexemphim.Model.TheLoai_model_du1;

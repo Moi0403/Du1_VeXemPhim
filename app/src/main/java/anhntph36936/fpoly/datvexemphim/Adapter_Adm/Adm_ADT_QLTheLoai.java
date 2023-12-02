@@ -1,4 +1,4 @@
-package anhntph36936.fpoly.datvexemphim.Adapter;
+package anhntph36936.fpoly.datvexemphim.Adapter_Adm;
 
 import android.app.Activity;
 import android.content.Context;
@@ -13,6 +13,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import anhntph36936.fpoly.datvexemphim.DAO.TheLoai_Dao_du1;
 import anhntph36936.fpoly.datvexemphim.Model.ItemClick_TheLoai;
@@ -31,7 +32,7 @@ public class Adm_ADT_QLTheLoai extends RecyclerView.Adapter<Adm_ADT_QLTheLoai.Vi
         this.list_tl = list_tl;
     }
 
-    public Adm_ADT_QLTheLoai() {
+    public Adm_ADT_QLTheLoai(List<TheLoai_model_du1> list_tl, Context context) {
     }
 
     @NonNull

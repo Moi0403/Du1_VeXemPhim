@@ -1,4 +1,4 @@
-package anhntph36936.fpoly.datvexemphim.Adapter;
+package anhntph36936.fpoly.datvexemphim.Adapter_Adm;
 
 import android.app.Activity;
 import android.content.Context;

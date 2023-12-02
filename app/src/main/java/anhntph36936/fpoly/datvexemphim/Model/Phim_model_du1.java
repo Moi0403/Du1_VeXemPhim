@@ -21,6 +21,7 @@ public class Phim_model_du1 {
         this.maloai = maloai;
     }
 
+
     public int getMaphim() {
         return maphim;
     }

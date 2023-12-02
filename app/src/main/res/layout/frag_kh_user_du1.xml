@@ -9,12 +9,14 @@
         android:layout_height="wrap_content">
         <ImageView
             android:layout_width="150dp"
-            android:layout_height="200dp"/>
+            android:layout_height="200dp"
+            android:src="@drawable/user"/>
     </LinearLayout>
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="THÔNG TIN CỦA YOU"
+        android:text="THÔNG TIN CỦA BẠN"
+        android:textStyle="bold"
         android:gravity="center"
         android:textColor="@color/black"
         android:textSize="25dp"/>
@@ -35,7 +37,8 @@
                 android:padding="5dp"
                 android:orientation="horizontal"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                android:layout_height="match_parent"
+                android:id="@+id/ln_ttcn">
                 <ImageView
                     android:src="@drawable/user"
                     android:layout_width="40dp"
@@ -46,15 +49,21 @@
                     android:textColor="@color/black"
                     android:textSize="25dp"
                     android:text="Thông tin cá nhân"
+                    android:textStyle="bold"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"/>
             </LinearLayout>
 
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:background="@drawable/gach"/>
             <LinearLayout
                 android:padding="5dp"
                 android:orientation="horizontal"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                android:layout_height="match_parent"
+                android:id="@+id/ln_dmk">
                 <ImageView
                     android:src="@drawable/dmk"
                     android:layout_width="40dp"
@@ -65,37 +74,25 @@
                     android:textColor="@color/black"
                     android:textSize="25dp"
                     android:text="Đổi Mật Khẩu"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"/>
-            </LinearLayout>
-            <LinearLayout
-                android:padding="10dp"
-                android:orientation="horizontal"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
-                <ImageView
-                    android:src="@drawable/phone"
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"/>
-                <TextView
-                    android:id="@+id/txtLienHe"
-                    android:padding="10dp"
-                    android:textColor="@color/black"
-                    android:textSize="25dp"
-                    android:text="Liên Hệ"
+                    android:textStyle="bold"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"/>
             </LinearLayout>
 
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:background="@drawable/gach"/>
             <LinearLayout
                 android:padding="10dp"
                 android:orientation="horizontal"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                android:layout_height="match_parent"
+                android:id="@+id/ln_exit">
 
                 <ImageView
                     android:layout_width="40dp"
-                    android:layout_height="40dp"
+                    android:layout_height="55dp"
                     android:src="@drawable/exit" />
 
                 <TextView
@@ -104,6 +101,7 @@
                     android:textColor="@color/black"
                     android:textSize="25dp"
                     android:text="Đăng Xuất"
+                    android:textStyle="bold"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"/>
             </LinearLayout>

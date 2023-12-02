@@ -112,7 +112,7 @@ public class ThanhVien_Dao_du1 {
         if (cursor.getCount() != 0){
             cursor.moveToFirst();
             do {
-                list.add(new ThanhVien_model_du1(cursor.getInt(0), cursor.getString(1), cursor.getString(2), cursor.getString(3), cursor.getString(4), cursor.getString(5)));
+                list.add(new ThanhVien_model_du1());
             }while (cursor.moveToNext());
         }
         return list;

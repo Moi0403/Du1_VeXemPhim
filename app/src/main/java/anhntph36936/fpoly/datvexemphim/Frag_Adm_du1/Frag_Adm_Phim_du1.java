@@ -22,7 +22,7 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-import anhntph36936.fpoly.datvexemphim.Adapter.Adm_ADT_Phim;
+import anhntph36936.fpoly.datvexemphim.Adapter_Adm.Adm_ADT_Phim;
 import anhntph36936.fpoly.datvexemphim.DAO.Phim_Dao_du1;
 import anhntph36936.fpoly.datvexemphim.DAO.TheLoai_Dao_du1;
 import anhntph36936.fpoly.datvexemphim.DAO.XuatChieu_Dao_du1;
@@ -129,7 +129,7 @@ public class Frag_Adm_Phim_du1 extends Fragment {
     }
     private void loadData(){
        ArrayList<Phim_model_du1> list = phimDAO.getDSPhim();
-        GridLayoutManager  gridLayoutManager =new GridLayoutManager(getContext(), 2);
+        GridLayoutManager  gridLayoutManager =new GridLayoutManager(getContext(), 1);
         recyclerPhim.setLayoutManager(gridLayoutManager);
         recyclerPhim.setFocusable(false);
         recyclerPhim.setNestedScrollingEnabled(false);

@@ -13,7 +13,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
 
-import anhntph36936.fpoly.datvexemphim.Adapter.Adm_ADT_QLTKhoan;
+import anhntph36936.fpoly.datvexemphim.Adapter_Adm.Adm_ADT_QLTKhoan;
 import anhntph36936.fpoly.datvexemphim.DAO.ThanhVien_Dao_du1;
 import anhntph36936.fpoly.datvexemphim.Model.ThanhVien_model_du1;
 import anhntph36936.fpoly.datvexemphim.R;

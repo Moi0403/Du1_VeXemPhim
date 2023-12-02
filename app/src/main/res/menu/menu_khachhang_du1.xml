@@ -12,7 +12,7 @@
         android:title="Vé"
         android:icon="@drawable/ve"/>
     <item android:id="@+id/mUser"
-        android:title="Account"
+        android:title="User"
         android:icon="@drawable/user"/>
 
 <!--    <item

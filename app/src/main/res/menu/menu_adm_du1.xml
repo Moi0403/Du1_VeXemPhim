@@ -3,12 +3,12 @@
     <item android:id="@+id/mHome"
         android:title="Trang Chủ"
         android:icon="@drawable/home"/>
-    <item android:id="@+id/mPhim"
-        android:title="Phim"
-        android:icon="@drawable/film"/>
     <group android:checkableBehavior="single">
         <item android:title="Chức Năng">
             <menu>
+                <item android:id="@+id/mPhim"
+                    android:title="Quản Lý Phim"
+                    android:icon="@drawable/film"/>
                 <item android:id="@+id/mQLTaiKhoan"
                     android:title="Quản Lý Tài Khoản"
                     android:icon="@drawable/user"/>
