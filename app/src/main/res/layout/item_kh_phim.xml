@@ -11,7 +11,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="horizontal"
-        android:background="#00BCD4"
+        android:background="#80DEEA"
         android:gravity="center">
 
         <ImageView
@@ -42,9 +42,9 @@
                     />
 
                 <TextView
-                    android:layout_width="wrap_content"
+                    android:layout_width="2dp"
                     android:layout_height="wrap_content"
-                    android:text="|"
+                    android:background="@drawable/gach"
                     />
 
                 <TextView
@@ -57,10 +57,10 @@
                    />
 
                 <TextView
-                    android:layout_width="wrap_content"
+                    android:layout_width="2dp"
                     android:layout_height="wrap_content"
-                    android:text="|"
-                    android:textSize="18sp"/>
+                    android:background="@drawable/gach"
+                    />
 
                 <TextView
                     android:id="@+id/txtGiaVe"
@@ -87,10 +87,10 @@
                  />
 
                 <TextView
-                    android:layout_width="wrap_content"
+                    android:layout_width="2dp"
                     android:layout_height="wrap_content"
-                    android:text="|"
-                    android:textSize="18sp"/>
+                    android:background="@drawable/gach"
+                    />
 
                 <TextView
                     android:id="@+id/txtNgay"

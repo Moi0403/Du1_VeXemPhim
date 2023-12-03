@@ -1,0 +1,314 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="300dp"
+    android:layout_height="450dp"
+    android:layout_gravity="center"
+    android:background="@drawable/botron">
+
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="10dp">
+            <TextView
+                android:id="@+id/txtTenPhim"
+                android:layout_width="0dp"
+                android:textColor="@color/white"
+                android:text="Tên Phim"
+                android:textSize="20dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"/>
+            <TextView
+                android:id="@+id/txtTheLoai"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="Thể Loại"
+                android:textSize="20dp"
+                android:layout_weight="1"
+                android:textColor="@color/white" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="10dp">
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:id="@+id/txtTim"
+                android:textColor="@color/white"
+                android:text="9h30"
+                android:textSize="25sp"
+                android:gravity="center"
+                android:layout_weight="1"
+                />
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:id="@+id/txtSelectday"
+                android:textColor="@color/white"
+                android:text="10/12/2022"
+                android:gravity="center"
+                android:textSize="25sp"
+                android:layout_weight="1"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:orientation="vertical"
+            android:id="@+id/checkboxitem">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <CheckBox
+                    android:textColor="@color/white"
+                    android:buttonTint="@color/white"
+                    android:id="@+id/A1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:text="A1" />
+
+                <CheckBox
+                    android:textColor="@color/white"
+                    android:buttonTint="@color/white"
+                    android:id="@+id/A2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:text="A2" />
+
+                <CheckBox
+
+                    android:textColor="@color/white"
+                    android:buttonTint="@color/white"
+                    android:id="@+id/A3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:text="A3" />
+
+                <CheckBox
+                    android:textColor="@color/white"
+                    android:buttonTint="@color/white"
+                    android:id="@+id/A4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:text="A4" />
+
+            </LinearLayout>
+
+            <LinearLayout
+
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <CheckBox
+                    android:textColor="@color/white"
+                    android:buttonTint="@color/white"
+                    android:id="@+id/B1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:text="B1" />
+
+                <CheckBox
+                    android:textColor="@color/white"
+                    android:buttonTint="@color/white"
+                    android:id="@+id/B2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:text="B2" />
+
+
+                <CheckBox
+                    android:textColor="@color/white"
+                    android:buttonTint="@color/white"
+                    android:id="@+id/B3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:text="B3" />
+
+                <CheckBox
+                    android:textColor="@color/white"
+                    android:buttonTint="@color/white"
+                    android:id="@+id/B4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:text="B4" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <CheckBox
+                    android:textColor="@color/white"
+                    android:buttonTint="@color/white"
+                    android:id="@+id/C1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:text="C1" />
+
+                <CheckBox
+                    android:textColor="@color/white"
+                    android:buttonTint="@color/white"
+                    android:id="@+id/C2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:text="C2" />
+
+                <CheckBox
+                    android:textColor="@color/white"
+                    android:buttonTint="@color/white"
+                    android:id="@+id/C3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:text="C3" />
+
+                <CheckBox
+                    android:textColor="@color/white"
+                    android:buttonTint="@color/white"
+                    android:id="@+id/C4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:text="C4" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:textColor="@color/white"
+                android:buttonTint="@color/white"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <CheckBox
+                    android:textColor="@color/white"
+                    android:buttonTint="@color/white"
+                    android:id="@+id/D1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:text="D1" />
+
+                <CheckBox
+                    android:textColor="@color/white"
+                    android:buttonTint="@color/white"
+                    android:id="@+id/D2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:text="D2" />
+
+                <CheckBox
+                    android:textColor="@color/white"
+                    android:buttonTint="@color/white"
+                    android:id="@+id/D3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:text="D3" />
+
+                <CheckBox
+                    android:textColor="@color/white"
+                    android:buttonTint="@color/white"
+                    android:id="@+id/D4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:text="D4" />
+
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="93dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="Số lượng: "
+                    android:textColor="@color/white"
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:textColor="@color/white"
+                    android:id="@+id/txtsl"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="0"
+                    android:textSize="20sp"/>
+                <CheckBox
+                    android:layout_width="120dp"
+                    android:layout_height="wrap_content"
+                    android:enabled="false"
+                    android:text="Ghế đã đặt"
+                    android:textColor="@color/white"
+                    android:layout_marginLeft="80dp"
+                    android:buttonTint="#FB0000"/>
+
+            </LinearLayout>
+            <TextView
+                android:textColor="@color/white"
+                android:gravity="end"
+                android:layout_marginRight="10sp"
+                android:textSize="20sp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/txtgia"
+                android:text="0 VNĐ"
+                android:textStyle="italic"/>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:layout_marginTop="10sp">
+
+            <Button
+                android:id="@+id/btnhuy_dv"
+                android:layout_width="wrap_content"
+                android:layout_height="40sp"
+                android:layout_gravity="center"
+                android:text="Hủy"
+                tools:ignore="TouchTargetSizeCheck" />
+
+            <Button
+                android:id="@+id/btnDatVe_dv"
+                android:layout_width="wrap_content"
+                android:layout_height="40sp"
+                android:layout_gravity="center"
+                android:layout_marginLeft="80dp"
+                android:text="Đặt"
+                tools:ignore="TouchTargetSizeCheck" />
+        </LinearLayout>
+
+</LinearLayout>

@@ -110,12 +110,17 @@ public class Frag_Adm_Phim_du1 extends Fragment {
                 int maloai = (int) hs.get("maloai");
                 HashMap<String, Object> hsGio1 = (HashMap<String, Object>) spnGio1.getSelectedItem();
                 maxuatchieu = (int) hsGio1.get("maxuatchieu");
-                boolean check = phimDAO.themPhim(edTenP, edAnhP, maloai, maxuatchieu);
-                if ( check == true){
-                    Toast.makeText(getContext(), "Thêm phim thành công !", Toast.LENGTH_SHORT).show();
-                    loadData();
+
+                if(edAnhP.equals("") || edTenP.equals("")){
+                    Toast.makeText(getContext(), "Nhập đủ thông tin", Toast.LENGTH_SHORT).show();
                 } else {
-                    Toast.makeText(getContext(), "Thêm phim không thành công !", Toast.LENGTH_SHORT).show();
+                    boolean check = phimDAO.themPhim(edTenP, edAnhP, maloai, maxuatchieu);
+                    if ( check == true){
+                        Toast.makeText(getContext(), "Thêm phim thành công !", Toast.LENGTH_SHORT).show();
+                        loadData();
+                    } else {
+                        Toast.makeText(getContext(), "Thêm phim không thành công !", Toast.LENGTH_SHORT).show();
+                    }
                 }
             }
         });
