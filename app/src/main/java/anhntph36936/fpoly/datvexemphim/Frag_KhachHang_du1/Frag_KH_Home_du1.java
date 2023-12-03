@@ -40,6 +40,7 @@ public class Frag_KH_Home_du1 extends Fragment {
         sharedPreferences = getActivity().getSharedPreferences("THONGTIN", Context.MODE_PRIVATE);
         String ten = sharedPreferences.getString("tentv", "");
         tv_tenkh.setText("Xin chào, "+ten);
+
         loadData();
         return view;
     }

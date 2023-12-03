@@ -6,7 +6,7 @@ import android.database.sqlite.SQLiteOpenHelper;
 
 public class DB_Helper_du1 extends SQLiteOpenHelper {
     static String DB_NAME = "du1_vexemphim";
-    static int DB_VERSION = 7;
+    static int DB_VERSION = 9;
 
     public DB_Helper_du1(Context context) {
         super(context, DB_NAME, null, DB_VERSION);
@@ -23,7 +23,7 @@ public class DB_Helper_du1 extends SQLiteOpenHelper {
         String tb_Phim = "create table PHIM(maphim integer primary key autoincrement, tenphim text not null, hinhanh text not null, maloai integer references THELOAI(maloai), maxuatchieu integer references XUATCHIEU(maxuatchieu))";
         db.execSQL(tb_Phim);
 
-        String tb_ThanhVien = "create table THANHVIEN(matv integer primary key autoincrement,sodienthoai text, email text, tentv text, matkhau text, loaitaikhoan text)";
+        String tb_ThanhVien = "create table THANHVIEN(matv integer primary key autoincrement not null,sodienthoai text not null, email text not null, tentv text not null, matkhau text not null, loaitaikhoan text not null)";
         db.execSQL(tb_ThanhVien);
 
         String tb_Ve = "create table VE(mave integer primary key autoincrement, soghe text,soluong text, giave text, thoigiandat text, ngaychieu text, maxuatchieu integer references XUATCHIEU(maxuatchieu), maphim integer references PHIM(maphim) )";

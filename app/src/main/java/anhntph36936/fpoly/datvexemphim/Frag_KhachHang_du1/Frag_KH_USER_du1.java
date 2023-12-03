@@ -92,20 +92,8 @@ public class Frag_KH_USER_du1 extends Fragment {
         btn_Up_tt.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String ma = tv_matt.getText().toString();
-                String ltk = tv_ltk_tt.getText().toString();
-                String sdt = edSDT_tt.getText().toString();
-                String email = edEmail_tt.getText().toString();
-                String user = edUser_tt.getText().toString();
-                String pass = edPass_tt.getText().toString();
-
-                boolean check = thanhVien_dao_du1.capNhatThanhVien(ma, sdt, email, user, pass, ltk);
-                if(check == true){
-                    Toast.makeText(getContext(), "Cập nhật thành công !", Toast.LENGTH_SHORT).show();
-                    dialog.dismiss();
-                } else {
-                    Toast.makeText(getContext(), "Cập nhật không thành công !", Toast.LENGTH_SHORT).show();
-                }
+                Toast.makeText(getContext(), "Chức năng đang cập nhật", Toast.LENGTH_SHORT).show();
+                dialog.dismiss();
             }
         });
 
