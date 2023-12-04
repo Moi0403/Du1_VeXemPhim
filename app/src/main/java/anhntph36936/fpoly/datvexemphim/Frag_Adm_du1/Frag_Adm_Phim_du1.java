@@ -69,6 +69,7 @@ public class Frag_Adm_Phim_du1 extends Fragment {
 
         EditText edAnhPhim = view.findViewById(R.id.edtAnhPhim);
         EditText edtTenPhim = view.findViewById(R.id.edtTenPhim);
+        EditText edtGiaPhim = view.findViewById(R.id.edtGiaPhim);
         Button btnHuy_them = view.findViewById(R.id.btnHuy_them);
         Button btnThem_them = view.findViewById(R.id.btnThem_them);
 
@@ -106,15 +107,16 @@ public class Frag_Adm_Phim_du1 extends Fragment {
             public void onClick(View v) {
                 String edAnhP = edAnhPhim.getText().toString();
                 String edTenP = edtTenPhim.getText().toString();
+                String edGiaP = edtGiaPhim.getText().toString();
                 HashMap<String, Object> hs = (HashMap<String, Object>) spinnerTheLoai.getSelectedItem();
                 int maloai = (int) hs.get("maloai");
                 HashMap<String, Object> hsGio1 = (HashMap<String, Object>) spnGio1.getSelectedItem();
                 maxuatchieu = (int) hsGio1.get("maxuatchieu");
 
-                if(edAnhP.equals("") || edTenP.equals("")){
+                if(edAnhP.equals("") || edTenP.equals("") || edGiaP.equals("")){
                     Toast.makeText(getContext(), "Nhập đủ thông tin", Toast.LENGTH_SHORT).show();
                 } else {
-                    boolean check = phimDAO.themPhim(edTenP, edAnhP, maloai, maxuatchieu);
+                    boolean check = phimDAO.themPhim(edTenP, edAnhP, Integer.parseInt(edGiaP), maloai, maxuatchieu);
                     if ( check == true){
                         Toast.makeText(getContext(), "Thêm phim thành công !", Toast.LENGTH_SHORT).show();
                         loadData();

@@ -25,10 +25,12 @@ import com.squareup.picasso.Picasso;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-import anhntph36936.fpoly.datvexemphim.DAO.DatVe_Dao_du1;
+import anhntph36936.fpoly.datvexemphim.DAO.Ve_Dao_du1;
 import anhntph36936.fpoly.datvexemphim.DAO.Phim_Dao_du1;
+import anhntph36936.fpoly.datvexemphim.DAO.XuatChieu_Dao_du1;
 import anhntph36936.fpoly.datvexemphim.Model.Phim_model_du1;
-import anhntph36936.fpoly.datvexemphim.Model.Ve;
+import anhntph36936.fpoly.datvexemphim.Model.Ve_model_du1;
+import anhntph36936.fpoly.datvexemphim.Model.XuatChieu_Model_du1;
 import anhntph36936.fpoly.datvexemphim.R;
 
 public class KH_ADT_Phim extends RecyclerView.Adapter<KH_ADT_Phim.ViewHolder>{
@@ -37,8 +39,8 @@ public class KH_ADT_Phim extends RecyclerView.Adapter<KH_ADT_Phim.ViewHolder>{
     Phim_Dao_du1 phimDAO;
     ArrayList<HashMap<String, Object>> ds;
     SharedPreferences sharedPreferences;
-    DatVe_Dao_du1 vedao;
-    ArrayList<Ve> list_ve;
+    Ve_Dao_du1 vedao;
+    ArrayList<Ve_model_du1> list_veModeldu1;
     ArrayList<String> list_st;
     int sl = 0;
     String tenphim, theloai, ngay, gio,hinhanh;
@@ -70,11 +72,7 @@ public class KH_ADT_Phim extends RecyclerView.Adapter<KH_ADT_Phim.ViewHolder>{
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, @SuppressLint("RecyclerView") int position) {
-        sharedPreferences = context.getSharedPreferences("PHIM", Context.MODE_PRIVATE);
-        String hinhp = sharedPreferences.getString("hinhanh", "");
-        String tenp = sharedPreferences.getString("tenphim", "");
-        String gio = sharedPreferences.getString("tenphim", "");
-        String ngay = sharedPreferences.getString("tenphim", "");
+
 
         Phim_model_du1 imageView = list.get(position);
         Picasso.get()
@@ -82,6 +80,7 @@ public class KH_ADT_Phim extends RecyclerView.Adapter<KH_ADT_Phim.ViewHolder>{
                 .into(holder.ivHinhAnh);
         holder.txtTenPhim.setText("" + list.get(position).getTenphim());
         holder.txtTheLoai.setText("" + list.get(position).getTenloai());
+        holder.txtGiaVe.setText("" +list.get(position).getGiaphim() +".000 đ");
         holder.txtGio.setText("" + list.get(position).getThoigianchieu());
         holder.txtNgay.setText("" + list.get(position).getNgaychieu());
         holder.btnDatVe.setOnClickListener(new View.OnClickListener() {
@@ -89,7 +88,7 @@ public class KH_ADT_Phim extends RecyclerView.Adapter<KH_ADT_Phim.ViewHolder>{
             public void onClick(View v) {
                 AlertDialog.Builder builder = new AlertDialog.Builder(context);
                 LayoutInflater inflater = ((Activity)context).getLayoutInflater();
-                View view = inflater.inflate(R.layout.frag_kh_datve, null);
+                View view = inflater.inflate(R.layout.dialog_kh_datve_du1, null);
                 builder.setView(view);
                 builder.setCancelable(false);
                 AlertDialog dialog = builder.create();
@@ -118,11 +117,7 @@ public class KH_ADT_Phim extends RecyclerView.Adapter<KH_ADT_Phim.ViewHolder>{
                 D4 = view.findViewById(R.id.D4);
                 Button btn_dve_dv= view.findViewById(R.id.btnDatVe_dv);
                 Button btn_huy_d=view.findViewById(R.id.btnhuy_dv);
-
-                sharedPreferences = context.getSharedPreferences("PHIM", Context.MODE_PRIVATE);
-                String tenp = sharedPreferences.getString("tenphim", "");
-                String gio = sharedPreferences.getString("tenphim", "");
-                String ngay = sharedPreferences.getString("tenphim", "");
+                
 
                 txtTenPhim.setText("Phim:" +list.get(position).getTenphim());
                 txtTheLoai.setText("Thể loại:" +list.get(position).getTenloai());
@@ -135,27 +130,28 @@ public class KH_ADT_Phim extends RecyclerView.Adapter<KH_ADT_Phim.ViewHolder>{
                 btn_dve_dv.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        vedao = new DatVe_Dao_du1(context);
+                        vedao = new Ve_Dao_du1(context);
                         StringBuilder stringBuilder = new StringBuilder();
                         for (String a: list_st){
                             stringBuilder.append(a).append("\t");
-                            btn_dve_dv.setEnabled(false);
                         }
+                        String tenP = txtTenPhim.getText().toString();
                         String gio = txtTime.getText().toString();
                         String ngay = txtSelectday.getText().toString();
+
                         String ghe = stringBuilder.toString();
                         String gia = txtgia.getText().toString();
                         String sluong = txtsl.getText().toString();
+
 
                         boolean check = false;
                         if (ghe.equalsIgnoreCase("") || gio.equalsIgnoreCase("")){
                             Toast.makeText(context, "Chưa đủ thông tin !", Toast.LENGTH_SHORT).show();
                         } else{
-                            check = vedao.themve(ghe, sluong, gia, gio, ngay);
+                            check = vedao.themve(ghe, sluong,gia, tenP,  gio, ngay);
                         }
 
                         if (check == true){
-                            btn_huy_d.setEnabled(false);
                             Toast.makeText(context, "Đặt thành công", Toast.LENGTH_SHORT).show();
                         } else {
                             Toast.makeText(context, "Đặt không thành công", Toast.LENGTH_SHORT).show();
@@ -180,7 +176,7 @@ public class KH_ADT_Phim extends RecyclerView.Adapter<KH_ADT_Phim.ViewHolder>{
     }
 
     public  class ViewHolder extends RecyclerView.ViewHolder{
-        TextView txtTenPhim,txtTheLoai,txtGio,txtNgay;
+        TextView txtTenPhim,txtTheLoai,txtGio,txtNgay, txtGiaVe;
         ImageView ivHinhAnh;
         Button btnDatVe;
         public ViewHolder(@NonNull View itemView) {
@@ -189,12 +185,14 @@ public class KH_ADT_Phim extends RecyclerView.Adapter<KH_ADT_Phim.ViewHolder>{
             txtGio = itemView.findViewById(R.id.txtGio);
             txtNgay = itemView.findViewById(R.id.txtNgay);
             txtTenPhim = itemView.findViewById(R.id.TenPhim);
+            txtGiaVe = itemView.findViewById(R.id.txtGiaVe);
             ivHinhAnh = itemView.findViewById(R.id.ivHinhAnh);
             btnDatVe = itemView.findViewById(R.id.btnDatVe);
         }
     }
     public void checkgia(int slve){
-        txtgia.setText(45 * slve + ".000 VNĐ");
+        int i = 0;
+        txtgia.setText(list.get(i).getGiaphim() * slve + ".000 VNĐ");
     }
     public void tang(){
         ++sl;
@@ -207,12 +205,12 @@ public class KH_ADT_Phim extends RecyclerView.Adapter<KH_ADT_Phim.ViewHolder>{
         txtsl.setText(sl+"");
     }
     public void ghechecked() {
-        vedao = new DatVe_Dao_du1(context);
-        list_ve = vedao.getDSVe();
+        vedao = new Ve_Dao_du1(context);
+        list_veModeldu1 = vedao.getDSVe();
         ArrayList<String> listghe = new ArrayList<>();
 
-        for (Ve ve : list_ve) {
-            listghe.add(String.format("%s", ve.getSoghe()) + ve.getThoigiandat());
+        for (Ve_model_du1 veModeldu1 : list_veModeldu1) {
+            listghe.add(String.format("%s", veModeldu1.getSoghe()) + veModeldu1.getThoigiandat());
         }
         for (int i = 0; i < listghe.size(); i++) {
             if (listghe.get(i).contains("A1") && listghe.get(i).contains(gio)) {
@@ -393,6 +391,32 @@ public class KH_ADT_Phim extends RecyclerView.Adapter<KH_ADT_Phim.ViewHolder>{
             D3.setOnCheckedChangeListener(listener1);
             D4.setOnCheckedChangeListener(listener1);
     }
-
+    private ArrayList<HashMap<String, Object>> getDSGio() {
+        XuatChieu_Dao_du1 xuatChieuDAO = new XuatChieu_Dao_du1(context);
+        ArrayList<XuatChieu_Model_du1> list = xuatChieuDAO.getDSXuatChieu();
+        ArrayList<HashMap<String, Object>> listHM1 = new ArrayList<>();
+        for (XuatChieu_Model_du1 xuatChieu : list) {
+            HashMap<String, Object> hs = new HashMap<>();
+            hs.put("maxuatchieu", xuatChieu.getMaxuatchieu());
+            hs.put("thoigianchieu", xuatChieu.getThoigianchieu());
+            hs.put("ngaychieu", xuatChieu.getNgaychieu());
+            listHM1.add(hs);
+        }
+        return listHM1;
+    }
+    private ArrayList<HashMap<String , Object>> getDS(){
+        phimDAO = new Phim_Dao_du1(context);
+        ArrayList<Phim_model_du1> list = phimDAO.getDSPhim();
+        ArrayList<HashMap<String, Object>> listHM = new ArrayList<>();
+        for (Phim_model_du1 phim : list) {
+            HashMap<String, Object> hs = new HashMap<>();
+            hs.put("maphim", phim.getMaphim());
+            hs.put("tenphim", phim.getTenphim());
+            hs.put("giaphim", phim.getGiaphim());
+            hs.put("theloai", phim.getMaloai());
+            listHM.add(hs);
+        }
+        return listHM;
+    }
 
 }

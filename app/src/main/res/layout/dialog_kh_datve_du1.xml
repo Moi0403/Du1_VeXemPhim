@@ -276,14 +276,14 @@
 
             </LinearLayout>
             <TextView
-                android:textColor="@color/white"
+                android:textColor="#ff00"
                 android:gravity="end"
                 android:layout_marginRight="10sp"
                 android:textSize="20sp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/txtgia"
-                android:text="0 VNĐ"
+                android:text="0 đ"
                 android:textStyle="italic"/>
         </LinearLayout>
         <LinearLayout

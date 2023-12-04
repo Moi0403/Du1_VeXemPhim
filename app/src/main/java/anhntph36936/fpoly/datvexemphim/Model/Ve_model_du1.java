@@ -1,20 +1,22 @@
 package anhntph36936.fpoly.datvexemphim.Model;
 
-public class Ve {
+public class Ve_model_du1 {
     private int mave;
-    private String thoigiandat;
     private String soghe;
     private String giave;
     private String maxuatchieu;
     private String matv;
     private String ngaychieu;
+    private String thoigianchieu;
     private String soluong;
     private String tenphim;
     private String theloai;
+    private String hinhanh;
+    private String thoigiandat;
 
-    public Ve(int mave, String string, String cursorString, String s, String string1, String cursorString1) {
+    public Ve_model_du1(int mave, String thoigianchieu, String soghe, String giave, String maxuatchieu, String matv, String string) {
         this.mave = mave;
-        this.thoigiandat = thoigiandat;
+        this.thoigianchieu = thoigianchieu;
         this.soghe = soghe;
         this.giave = giave;
         this.maxuatchieu = maxuatchieu;
@@ -23,6 +25,23 @@ public class Ve {
         this.soluong = soluong;
         this.tenphim = tenphim;
         this.theloai = theloai;
+        this.hinhanh = hinhanh;
+    }
+
+    public String getThoigiandat() {
+        return thoigiandat;
+    }
+
+    public void setThoigiandat(String thoigiandat) {
+        this.thoigiandat = thoigiandat;
+    }
+
+    public String getHinhanh() {
+        return hinhanh;
+    }
+
+    public void setHinhanh(String hinhanh) {
+        this.hinhanh = hinhanh;
     }
 
     public int getMave() {
@@ -33,12 +52,12 @@ public class Ve {
         this.mave = mave;
     }
 
-    public String getThoigiandat() {
-        return thoigiandat;
+    public String getThoigianchieu() {
+        return thoigianchieu;
     }
 
-    public void setThoigiandat(String thoigiandat) {
-        this.thoigiandat = thoigiandat;
+    public void setThoigianchieu(String thoigianchieu) {
+        this.thoigianchieu = thoigianchieu;
     }
 
     public String getSoghe() {

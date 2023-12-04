@@ -4,16 +4,18 @@ public class Phim_model_du1 {
     private int maphim;
     private String tenphim;
     private String hinhanh;
+    private int giaphim;
     private String tenloai;
     private String thoigianchieu;
     private String ngaychieu;
     private int maxuatchieu;
     private int maloai;
 
-    public Phim_model_du1(int maphim, String tenphim, String hinhanh, String tenloai, String thoigianchieu, String ngaychieu) {
+    public Phim_model_du1(int maphim, String tenphim, String hinhanh, int giaphim, String tenloai, String thoigianchieu, String ngaychieu) {
         this.maphim = maphim;
         this.tenphim = tenphim;
         this.hinhanh = hinhanh;
+        this.giaphim = giaphim;
         this.tenloai = tenloai;
         this.thoigianchieu = thoigianchieu;
         this.ngaychieu = ngaychieu;
@@ -21,6 +23,13 @@ public class Phim_model_du1 {
         this.maloai = maloai;
     }
 
+    public int getGiaphim() {
+        return giaphim;
+    }
+
+    public void setGiaphim(int giaphim) {
+        this.giaphim = giaphim;
+    }
 
     public int getMaphim() {
         return maphim;
