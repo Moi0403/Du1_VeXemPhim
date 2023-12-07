@@ -40,7 +40,7 @@ public class Frag_KH_VE_du1 extends Fragment {
         ArrayList<Ve_model_du1> list = vedao.getDSVe();
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext());
         rc_kh_ve.setLayoutManager(linearLayoutManager);
-        KH_ADT_VE adt = new KH_ADT_VE(getContext(), list, vedao );
+        KH_ADT_VE adt = new KH_ADT_VE(getContext(), list, vedao);
         rc_kh_ve.setAdapter(adt);
     }
 }

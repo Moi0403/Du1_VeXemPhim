@@ -23,6 +23,10 @@ public class Phim_model_du1 {
         this.maloai = maloai;
     }
 
+    public Phim_model_du1() {
+
+    }
+
     public int getGiaphim() {
         return giaphim;
     }

@@ -31,7 +31,6 @@
                 android:id="@+id/txtTenP_ve"
                 android:layout_width="match_parent"
                 android:layout_height="20dp"
-                android:text="tenphim"
                 android:gravity="center"
                 android:textSize="15dp"
                 android:textColor="#ff00"/>
@@ -45,7 +44,6 @@
                     android:id="@+id/txtSoLuong_ve"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="3 sl"
                     android:gravity="center"
                     android:layout_weight="1" />
 
@@ -58,7 +56,6 @@
                     android:id="@+id/txtGhe_ve"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Gie"
                     android:gravity="center"
                     android:layout_weight="1"
                     />
@@ -74,7 +71,6 @@
                     android:id="@+id/txtThoiGian_ve"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="9:30"
                     android:layout_weight="1"
                     android:gravity="center"/>
 
@@ -87,7 +83,6 @@
                     android:id="@+id/txtNgay_ve"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="12/12/203"
                     android:layout_weight="1"
                     android:gravity="center" />
             </LinearLayout>

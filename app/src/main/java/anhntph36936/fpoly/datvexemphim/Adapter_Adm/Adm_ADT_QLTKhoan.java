@@ -2,12 +2,12 @@ package anhntph36936.fpoly.datvexemphim.Adapter_Adm;
 
 import android.app.Activity;
 import android.content.Context;
-import android.content.SharedPreferences;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -22,7 +22,6 @@ public class Adm_ADT_QLTKhoan extends RecyclerView.Adapter<Adm_ADT_QLTKhoan.View
     private Context context;
     private ArrayList<ThanhVien_model_du1> list_tv;
     private ThanhVien_Dao_du1 thanhVien_dao_du1;
-    SharedPreferences sharedPreferences;
 
     public Adm_ADT_QLTKhoan(Context context, ArrayList<ThanhVien_model_du1> list, ThanhVien_Dao_du1 thanhVienDAO) {
         this.context = context;
@@ -40,14 +39,6 @@ public class Adm_ADT_QLTKhoan extends RecyclerView.Adapter<Adm_ADT_QLTKhoan.View
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        sharedPreferences = context.getSharedPreferences("THONGTIN", Context.MODE_PRIVATE);
-        String matv = sharedPreferences.getString("matv", "");
-        String sdt = sharedPreferences.getString("sodienthoai", "");
-        String email = sharedPreferences.getString("email", "");
-        String hoten = sharedPreferences.getString("hoten", "");
-        String matkhau = sharedPreferences.getString("matkhau", "");
-        String loaitaikhoan = sharedPreferences.getString("loaitaikhoan", "");
-
         holder.txtMaTV.setText(list_tv.get(position).getMatv() +"");
         holder.txtSDT.setText("Số Điện Thoại: " + list_tv.get(position).getSdt());
         holder.txtEmail.setText("Email: " + list_tv.get(position).getEmail());
@@ -55,6 +46,22 @@ public class Adm_ADT_QLTKhoan extends RecyclerView.Adapter<Adm_ADT_QLTKhoan.View
         holder.txtMatKhau.setText("Mật Khẩu: " + list_tv.get(position).getMatkhau());
         holder.txtLoaiTK.setText("Loại Tài Khoản: " + list_tv.get(position).getLoaitaikhoan());
         list_tv = thanhVien_dao_du1.getDSThanhVien();
+
+        holder.ivDel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                thanhVien_dao_du1 = new ThanhVien_Dao_du1(context);
+                boolean check = thanhVien_dao_du1.xoaThanhVien(list_tv.get(holder.getAdapterPosition()).getMatv());
+                if (check == true){
+                    Toast.makeText(context, "Xóa Thành Công", Toast.LENGTH_SHORT).show();
+                    list_tv.clear();
+                    list_tv = thanhVien_dao_du1.getDSThanhVien();
+                    notifyDataSetChanged();
+                }else {
+                    Toast.makeText(context, "Xóa Thất Bại", Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
     }
 
     @Override
@@ -75,7 +82,7 @@ public class Adm_ADT_QLTKhoan extends RecyclerView.Adapter<Adm_ADT_QLTKhoan.View
             txtHoTen = itemView.findViewById(R.id.txtHoTen);
             txtMatKhau = itemView.findViewById(R.id.txtMatKhau);
             txtLoaiTK = itemView.findViewById(R.id.txtLoaiTaiKhoan);
-
+            ivDel = itemView.findViewById(R.id.ivDel_tk);
 
         }
     }

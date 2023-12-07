@@ -3,45 +3,22 @@ package anhntph36936.fpoly.datvexemphim.Model;
 public class Ve_model_du1 {
     private int mave;
     private String soghe;
-    private String giave;
-    private String maxuatchieu;
-    private String matv;
-    private String ngaychieu;
-    private String thoigianchieu;
     private String soluong;
-    private String tenphim;
-    private String theloai;
-    private String hinhanh;
-    private String thoigiandat;
+    private int gia;
+    private String ngay;
+    private String thoigian;
+    private String tenp;
+    private String anh;
 
-    public Ve_model_du1(int mave, String thoigianchieu, String soghe, String giave, String maxuatchieu, String matv, String string) {
+    public Ve_model_du1(int mave, String soghe, String soluong, int gia, String ngay, String thoigian, String tenp, String anh) {
         this.mave = mave;
-        this.thoigianchieu = thoigianchieu;
         this.soghe = soghe;
-        this.giave = giave;
-        this.maxuatchieu = maxuatchieu;
-        this.matv = matv;
-        this.ngaychieu = ngaychieu;
         this.soluong = soluong;
-        this.tenphim = tenphim;
-        this.theloai = theloai;
-        this.hinhanh = hinhanh;
-    }
-
-    public String getThoigiandat() {
-        return thoigiandat;
-    }
-
-    public void setThoigiandat(String thoigiandat) {
-        this.thoigiandat = thoigiandat;
-    }
-
-    public String getHinhanh() {
-        return hinhanh;
-    }
-
-    public void setHinhanh(String hinhanh) {
-        this.hinhanh = hinhanh;
+        this.gia = gia;
+        this.ngay = ngay;
+        this.thoigian = thoigian;
+        this.tenp = tenp;
+        this.anh = anh;
     }
 
     public int getMave() {
@@ -52,52 +29,12 @@ public class Ve_model_du1 {
         this.mave = mave;
     }
 
-    public String getThoigianchieu() {
-        return thoigianchieu;
-    }
-
-    public void setThoigianchieu(String thoigianchieu) {
-        this.thoigianchieu = thoigianchieu;
-    }
-
     public String getSoghe() {
         return soghe;
     }
 
     public void setSoghe(String soghe) {
         this.soghe = soghe;
-    }
-
-    public String getGiave() {
-        return giave;
-    }
-
-    public void setGiave(String giave) {
-        this.giave = giave;
-    }
-
-    public String getMaxuatchieu() {
-        return maxuatchieu;
-    }
-
-    public void setMaxuatchieu(String maxuatchieu) {
-        this.maxuatchieu = maxuatchieu;
-    }
-
-    public String getMatv() {
-        return matv;
-    }
-
-    public void setMatv(String matv) {
-        this.matv = matv;
-    }
-
-    public String getNgaychieu() {
-        return ngaychieu;
-    }
-
-    public void setNgaychieu(String ngaychieu) {
-        this.ngaychieu = ngaychieu;
     }
 
     public String getSoluong() {
@@ -108,19 +45,43 @@ public class Ve_model_du1 {
         this.soluong = soluong;
     }
 
-    public String getTenphim() {
-        return tenphim;
+    public int getGia() {
+        return gia;
     }
 
-    public void setTenphim(String tenphim) {
-        this.tenphim = tenphim;
+    public void setGia(int gia) {
+        this.gia = gia;
     }
 
-    public String getTheloai() {
-        return theloai;
+    public String getNgay() {
+        return ngay;
     }
 
-    public void setTheloai(String theloai) {
-        this.theloai = theloai;
+    public void setNgay(String ngay) {
+        this.ngay = ngay;
+    }
+
+    public String getThoigian() {
+        return thoigian;
+    }
+
+    public void setThoigian(String thoigian) {
+        this.thoigian = thoigian;
+    }
+
+    public String getTenp() {
+        return tenp;
+    }
+
+    public void setTenp(String tenp) {
+        this.tenp = tenp;
+    }
+
+    public String getAnh() {
+        return anh;
+    }
+
+    public void setAnh(String anh) {
+        this.anh = anh;
     }
 }

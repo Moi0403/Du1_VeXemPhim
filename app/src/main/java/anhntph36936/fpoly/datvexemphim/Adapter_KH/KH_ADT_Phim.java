@@ -13,6 +13,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -25,8 +26,8 @@ import com.squareup.picasso.Picasso;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-import anhntph36936.fpoly.datvexemphim.DAO.Ve_Dao_du1;
 import anhntph36936.fpoly.datvexemphim.DAO.Phim_Dao_du1;
+import anhntph36936.fpoly.datvexemphim.DAO.Ve_Dao_du1;
 import anhntph36936.fpoly.datvexemphim.DAO.XuatChieu_Dao_du1;
 import anhntph36936.fpoly.datvexemphim.Model.Phim_model_du1;
 import anhntph36936.fpoly.datvexemphim.Model.Ve_model_du1;
@@ -34,13 +35,16 @@ import anhntph36936.fpoly.datvexemphim.Model.XuatChieu_Model_du1;
 import anhntph36936.fpoly.datvexemphim.R;
 
 public class KH_ADT_Phim extends RecyclerView.Adapter<KH_ADT_Phim.ViewHolder>{
-    ArrayList<Phim_model_du1> list;
+    ArrayList<Phim_model_du1> list_p;
+    Phim_Dao_du1 phimdao;
+    ArrayList<XuatChieu_Model_du1> list_xc;
+    XuatChieu_Dao_du1 xcdao;
     Context context;
     Phim_Dao_du1 phimDAO;
     ArrayList<HashMap<String, Object>> ds;
     SharedPreferences sharedPreferences;
     Ve_Dao_du1 vedao;
-    ArrayList<Ve_model_du1> list_veModeldu1;
+    ArrayList<Ve_model_du1> list_ve;
     ArrayList<String> list_st;
     int sl = 0;
     String tenphim, theloai, ngay, gio,hinhanh;
@@ -49,15 +53,10 @@ public class KH_ADT_Phim extends RecyclerView.Adapter<KH_ADT_Phim.ViewHolder>{
     CheckBox C1,C2,C3,C4;
     CheckBox D1,D2,D3,D4;
     TextView txtgia, txtsl;
-    public KH_ADT_Phim(ArrayList<Phim_model_du1> list, Context context, Phim_Dao_du1 phimDAO, ArrayList<HashMap<String, Object>> ds) {
-        this.list = list;
-        this.context = context;
-        this.phimDAO = phimDAO;
-        this.ds = ds;
-    }
+
 
     public KH_ADT_Phim(Context context, ArrayList<Phim_model_du1> list, Phim_Dao_du1 phimDAO) {
-        this.list = list;
+        this.list_p = list;
         this.context = context;
         this.phimDAO = phimDAO;
     }
@@ -73,16 +72,15 @@ public class KH_ADT_Phim extends RecyclerView.Adapter<KH_ADT_Phim.ViewHolder>{
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, @SuppressLint("RecyclerView") int position) {
 
-
-        Phim_model_du1 imageView = list.get(position);
+        Phim_model_du1 imageView = list_p.get(position);
         Picasso.get()
                 .load(imageView.getHinhanh())
                 .into(holder.ivHinhAnh);
-        holder.txtTenPhim.setText("" + list.get(position).getTenphim());
-        holder.txtTheLoai.setText("" + list.get(position).getTenloai());
-        holder.txtGiaVe.setText("" +list.get(position).getGiaphim() +".000 đ");
-        holder.txtGio.setText("" + list.get(position).getThoigianchieu());
-        holder.txtNgay.setText("" + list.get(position).getNgaychieu());
+        holder.txtTenPhim.setText("" + list_p.get(position).getTenphim());
+        holder.txtTheLoai.setText("" + list_p.get(position).getTenloai());
+        holder.txtGiaVe.setText("" +list_p.get(position).getGiaphim() +".000 đ");
+        holder.txtGio.setText("" + list_p.get(position).getThoigianchieu());
+        holder.txtNgay.setText("" + list_p.get(position).getNgaychieu());
         holder.btnDatVe.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -93,6 +91,8 @@ public class KH_ADT_Phim extends RecyclerView.Adapter<KH_ADT_Phim.ViewHolder>{
                 builder.setCancelable(false);
                 AlertDialog dialog = builder.create();
 
+                ImageView img_APhim = view.findViewById(R.id.img_anhphim_dv);
+                EditText edAp = view.findViewById(R.id.ed_anhp);
                 TextView txtTenPhim = view.findViewById(R.id.txtTenPhim);
                 TextView txtTheLoai = view.findViewById(R.id.txtTheLoai);
                 TextView txtTime = view.findViewById(R.id.txtTim);
@@ -117,14 +117,18 @@ public class KH_ADT_Phim extends RecyclerView.Adapter<KH_ADT_Phim.ViewHolder>{
                 D4 = view.findViewById(R.id.D4);
                 Button btn_dve_dv= view.findViewById(R.id.btnDatVe_dv);
                 Button btn_huy_d=view.findViewById(R.id.btnhuy_dv);
-                
 
-                txtTenPhim.setText("Phim:" +list.get(position).getTenphim());
-                txtTheLoai.setText("Thể loại:" +list.get(position).getTenloai());
-                txtTime.setText("" +list.get(position).getThoigianchieu());
-                txtSelectday.setText("" +list.get(position).getNgaychieu());
+                Phim_model_du1 img_Ap_dv = list_p.get(position);
+                Picasso.get()
+                        .load(img_Ap_dv.getHinhanh())
+                        .into(img_APhim);
+                edAp.setText("" +list_p.get(position).getHinhanh());
+                txtTenPhim.setText("Phim:" +list_p.get(position).getTenphim());
+                txtTheLoai.setText("Thể loại:" +list_p.get(position).getTenloai());
+                txtTime.setText("" +list_p.get(position).getThoigianchieu());
+                txtSelectday.setText("" +list_p.get(position).getNgaychieu());
 
-                ghechecked();
+//                ghechecked();
                 Listener();
 
                 btn_dve_dv.setOnClickListener(new View.OnClickListener() {
@@ -134,24 +138,26 @@ public class KH_ADT_Phim extends RecyclerView.Adapter<KH_ADT_Phim.ViewHolder>{
                         StringBuilder stringBuilder = new StringBuilder();
                         for (String a: list_st){
                             stringBuilder.append(a).append("\t");
+                            btn_dve_dv.setEnabled(false);
                         }
-                        String tenP = txtTenPhim.getText().toString();
+                        String ghe = stringBuilder.toString();
+                        String sluong = txtsl.getText().toString();
+                        String gia = txtgia.getText().toString();
                         String gio = txtTime.getText().toString();
                         String ngay = txtSelectday.getText().toString();
-
-                        String ghe = stringBuilder.toString();
-                        String gia = txtgia.getText().toString();
-                        String sluong = txtsl.getText().toString();
+                        String tenp = txtTenPhim.getText().toString();
+                        String anh = edAp.getText().toString();
 
 
                         boolean check = false;
                         if (ghe.equalsIgnoreCase("") || gio.equalsIgnoreCase("")){
                             Toast.makeText(context, "Chưa đủ thông tin !", Toast.LENGTH_SHORT).show();
                         } else{
-                            check = vedao.themve(ghe, sluong,gia, tenP,  gio, ngay);
+                            check = vedao.themVe(ghe, sluong, gia, ngay, gio, tenp, anh);
                         }
 
                         if (check == true){
+                            btn_dve_dv.setEnabled(false);
                             Toast.makeText(context, "Đặt thành công", Toast.LENGTH_SHORT).show();
                         } else {
                             Toast.makeText(context, "Đặt không thành công", Toast.LENGTH_SHORT).show();
@@ -172,7 +178,7 @@ public class KH_ADT_Phim extends RecyclerView.Adapter<KH_ADT_Phim.ViewHolder>{
 
     @Override
     public int getItemCount() {
-        return list.size();
+        return list_p.size();
     }
 
     public  class ViewHolder extends RecyclerView.ViewHolder{
@@ -192,7 +198,7 @@ public class KH_ADT_Phim extends RecyclerView.Adapter<KH_ADT_Phim.ViewHolder>{
     }
     public void checkgia(int slve){
         int i = 0;
-        txtgia.setText(list.get(i).getGiaphim() * slve + ".000 VNĐ");
+        txtgia.setText(list_p.get(i).getGiaphim() * slve + ".000 đ");
     }
     public void tang(){
         ++sl;
@@ -206,12 +212,12 @@ public class KH_ADT_Phim extends RecyclerView.Adapter<KH_ADT_Phim.ViewHolder>{
     }
     public void ghechecked() {
         vedao = new Ve_Dao_du1(context);
-        list_veModeldu1 = vedao.getDSVe();
+        list_ve = vedao.getDSVe();
         ArrayList<String> listghe = new ArrayList<>();
 
-        for (Ve_model_du1 veModeldu1 : list_veModeldu1) {
-            listghe.add(String.format("%s", veModeldu1.getSoghe()) + veModeldu1.getThoigiandat());
-        }
+//        for (Ve_model_du1 veModeldu1 : list_ve) {
+//            listghe.add(String.format("%s", veModeldu1.getSoghe()) + veModeldu1.getThoigian());
+//        }
         for (int i = 0; i < listghe.size(); i++) {
             if (listghe.get(i).contains("A1") && listghe.get(i).contains(gio)) {
                 A1.setEnabled(false);
@@ -391,32 +397,4 @@ public class KH_ADT_Phim extends RecyclerView.Adapter<KH_ADT_Phim.ViewHolder>{
             D3.setOnCheckedChangeListener(listener1);
             D4.setOnCheckedChangeListener(listener1);
     }
-    private ArrayList<HashMap<String, Object>> getDSGio() {
-        XuatChieu_Dao_du1 xuatChieuDAO = new XuatChieu_Dao_du1(context);
-        ArrayList<XuatChieu_Model_du1> list = xuatChieuDAO.getDSXuatChieu();
-        ArrayList<HashMap<String, Object>> listHM1 = new ArrayList<>();
-        for (XuatChieu_Model_du1 xuatChieu : list) {
-            HashMap<String, Object> hs = new HashMap<>();
-            hs.put("maxuatchieu", xuatChieu.getMaxuatchieu());
-            hs.put("thoigianchieu", xuatChieu.getThoigianchieu());
-            hs.put("ngaychieu", xuatChieu.getNgaychieu());
-            listHM1.add(hs);
-        }
-        return listHM1;
-    }
-    private ArrayList<HashMap<String , Object>> getDS(){
-        phimDAO = new Phim_Dao_du1(context);
-        ArrayList<Phim_model_du1> list = phimDAO.getDSPhim();
-        ArrayList<HashMap<String, Object>> listHM = new ArrayList<>();
-        for (Phim_model_du1 phim : list) {
-            HashMap<String, Object> hs = new HashMap<>();
-            hs.put("maphim", phim.getMaphim());
-            hs.put("tenphim", phim.getTenphim());
-            hs.put("giaphim", phim.getGiaphim());
-            hs.put("theloai", phim.getMaloai());
-            listHM.add(hs);
-        }
-        return listHM;
-    }
-
 }

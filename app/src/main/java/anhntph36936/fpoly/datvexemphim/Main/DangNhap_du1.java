@@ -39,6 +39,13 @@ public class DangNhap_du1 extends AppCompatActivity {
         SQLiteDatabase sqLiteDatabase = dbHelperDu1.getReadableDatabase();
         dbHelperDu1.close();
 
+        SharedPreferences pref = getSharedPreferences("DN_FILE", MODE_PRIVATE);
+        String sdt = pref.getString("SODIENTHOAI", "");
+        String pass = pref.getString("PASSWORD", "");
+        boolean rem = pref.getBoolean("REMEMBER", false);
+        edsdtDN.setText(sdt);
+        edPassDN.setText(pass);
+        checkLuu.setChecked(rem);
         btnDangnhapDN.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -51,7 +58,8 @@ public class DangNhap_du1 extends AppCompatActivity {
                 } else {
                     if(thanhVien_dao_du1.checkDangNhap(edsdt, edPass)){
                         loaiTK = sharedPreferences.getString("loaitaikhoan", "");
-                        Toast.makeText(getApplicationContext(), ""+loaiTK, Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getApplicationContext(), "Đăng nhập thành công !", Toast.LENGTH_SHORT).show();
+                        remmemberUser(edsdt, edPass, checkLuu.isChecked());
                         if (loaiTK.equalsIgnoreCase("admin")){
                             startActivity(new Intent(DangNhap_du1.this, Main_Adm_du1.class));
                         } else {
@@ -70,5 +78,23 @@ public class DangNhap_du1 extends AppCompatActivity {
                 startActivity(dangki);
             }
         });
+    }
+
+    public void remmemberUser(String  u, String p, boolean status) {
+        SharedPreferences pref = getSharedPreferences("DN_FILE", MODE_PRIVATE);
+        SharedPreferences.Editor editor = pref.edit();
+        if (!status) {
+            editor.clear();
+        } else {
+            editor.putString("SODIENTHOAI", u);
+            editor.putString("PASSWORD", p);
+            editor.putBoolean("REMEMBER", status);
+        }
+        editor.commit();
+    }
+    @Override
+    public void onBackPressed() {
+        // Không cho phép quay lại
+        // super.onBackPressed(); // Bỏ comment dòng này nếu muốn cho phép quay lại
     }
 }

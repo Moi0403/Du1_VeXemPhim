@@ -8,13 +8,23 @@ public class ThanhVien_model_du1 {
     private String matkhau;
     private String loaitaikhoan;
 
-    public ThanhVien_model_du1() {
+    public ThanhVien_model_du1(int matv, String sdt, String email, String tentv, String matkhau, String loaitaikhoan) {
         this.matv = matv;
         this.sdt = sdt;
         this.email = email;
         this.tentv = tentv;
         this.matkhau = matkhau;
         this.loaitaikhoan = loaitaikhoan;
+    }
+
+    public ThanhVien_model_du1(String sdt, String email, String tentv) {
+        this.sdt = sdt;
+        this.email = email;
+        this.tentv = tentv;
+    }
+
+    public ThanhVien_model_du1() {
+
     }
 
     public int getMatv() {

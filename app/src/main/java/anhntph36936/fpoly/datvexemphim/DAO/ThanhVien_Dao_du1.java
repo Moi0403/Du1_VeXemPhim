@@ -5,6 +5,7 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.util.Log;
 
 import java.util.ArrayList;
 
@@ -42,7 +43,29 @@ public class ThanhVien_Dao_du1 {
             return false;
         }
     }
+    public  boolean checkDangKi(String sdt, String email){
+        SQLiteDatabase sqLiteDatabase = dbHelperDu1.getReadableDatabase();
+        Cursor cursor = sqLiteDatabase.rawQuery("SELECT * FROM THANHVIEN WHERE sodienthoai = ? And email = ?", new String[]{sdt, email});
+        if (cursor.getCount() != 0) {
+            cursor.moveToFirst();
+
+            SharedPreferences.Editor editor = sharedPreferences.edit();
+
+            editor.putString("matv", String.valueOf(cursor.getInt(0)));
+            editor.putString("sodienthoai", cursor.getString(1));
+            editor.putString("email", cursor.getString(2));
+            editor.putString("hoten", cursor.getString(3));
+            editor.putString("matkhau", cursor.getString(4));
+            editor.putString("loaitaikhoan", cursor.getString(5));
+            editor.commit();
+            return true;
+        } else {
+            return false;
+        }
+    }
+
     public boolean themThanhVien(String SDT, String Email, String HoTen, String MatKhau, String LoaiTaiKhoan) {
+        Log.d("Add", SDT + Email + HoTen + MatKhau + LoaiTaiKhoan);
         SQLiteDatabase sqLiteDatabase = dbHelperDu1.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
         contentValues.put("sodienthoai", SDT);
@@ -73,21 +96,14 @@ public class ThanhVien_Dao_du1 {
             return true;
         }
     }
-    public boolean capNhatThanhVien(String Matv,String SDT, String Email, String HoTen, String MatKhau, String LoaiTaiKhoan){
+    public int capNhatThanhVien(ThanhVien_model_du1 tv){
         SQLiteDatabase sqLiteDatabase = dbHelperDu1.getWritableDatabase();
         ContentValues contentValues =new ContentValues();
-        contentValues.put("sodienthoai", SDT);
-        contentValues.put("Email", Email);
-        contentValues.put("tentv", HoTen);
-        contentValues.put("matkhau", MatKhau);
-        contentValues.put("loaitaikhoan", LoaiTaiKhoan);
-
-        long check = sqLiteDatabase.update("THANHVIEN", contentValues, "matv = ?", new String[]{Matv});
-        if (check == -1){
-            return false;
-        }else {
-            return true;
-        }
+        contentValues.put("sodienthoai", tv.getSdt());
+        contentValues.put("Email", tv.getEmail());
+        contentValues.put("tentv", tv.getTentv());
+        String[] dk = new String[]{String.valueOf(tv.getMatv())};
+        return sqLiteDatabase.update("THANHVIEN", contentValues, "matv=?", dk);
     }
     public boolean capNhatMatKhau(String sdt, String oldPass, String newPass){
         SQLiteDatabase sqLiteDatabase = dbHelperDu1.getWritableDatabase();
@@ -112,7 +128,13 @@ public class ThanhVien_Dao_du1 {
         if (cursor.getCount() != 0){
             cursor.moveToFirst();
             do {
-                list.add(new ThanhVien_model_du1());
+                    list.add(new ThanhVien_model_du1(cursor.getInt(0),
+                        cursor.getString(1),
+                            cursor.getString(2),
+                            cursor.getString(3),
+                            cursor.getString(4),
+                            cursor.getString(5)
+                            ));
             }while (cursor.moveToNext());
         }
         return list;

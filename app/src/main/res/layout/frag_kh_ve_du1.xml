@@ -43,8 +43,9 @@
             android:layout_height="match_parent"
             android:gravity="center"
             android:textSize="20dp"
+            android:textColor="#ff00"
             android:textStyle="bold"
-            android:text="100.000 đ"/>
+            android:text="0 đ"/>
         <Button
             android:id="@+id/btn_thanhtoan_ve"
             android:layout_width="match_parent"

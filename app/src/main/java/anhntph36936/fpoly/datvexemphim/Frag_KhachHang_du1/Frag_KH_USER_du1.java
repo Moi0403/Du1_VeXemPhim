@@ -12,15 +12,18 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
+import java.util.ArrayList;
+
+import anhntph36936.fpoly.datvexemphim.Adapter_Adm.Adm_ADT_QLTKhoan;
 import anhntph36936.fpoly.datvexemphim.DAO.ThanhVien_Dao_du1;
 import anhntph36936.fpoly.datvexemphim.Main.DangNhap_du1;
+import anhntph36936.fpoly.datvexemphim.Model.ThanhVien_model_du1;
 import anhntph36936.fpoly.datvexemphim.R;
 
 public class Frag_KH_USER_du1 extends Fragment {
@@ -28,6 +31,8 @@ public class Frag_KH_USER_du1 extends Fragment {
     ThanhVien_Dao_du1 thanhVien_dao_du1;
     SharedPreferences sharedPreferences;
     LinearLayout ln_ttcn, ln_dmk, ln_exit;
+    ArrayList<ThanhVien_model_du1> list_tv;
+    Adm_ADT_QLTKhoan adt;
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -65,35 +70,41 @@ public class Frag_KH_USER_du1 extends Fragment {
         builder.setCancelable(false);
         AlertDialog dialog = builder.create();
 
-        TextView tv_matt = view.findViewById(R.id.tv_matt);
-        TextView tv_ltk_tt = view.findViewById(R.id.tv_ltk_tt);
         EditText edSDT_tt = view.findViewById(R.id.edSdt_tt);
         EditText edEmail_tt = view.findViewById(R.id.edEmai_tt);
         EditText edUser_tt = view.findViewById(R.id.edUser_tt);
-        EditText edPass_tt = view.findViewById(R.id.edPass_tt);
         Button btn_huy_tt = view.findViewById(R.id.btn_huy_tt);
         Button btn_Up_tt = view.findViewById(R.id.btn_Up_tt);
 
+        thanhVien_dao_du1 = new ThanhVien_Dao_du1(getContext());
         sharedPreferences = getActivity().getSharedPreferences("THONGTIN", Context.MODE_PRIVATE);
-        String ma = sharedPreferences.getString("matv", "");
         String sdt = sharedPreferences.getString("sodienthoai", "");
         String email = sharedPreferences.getString("email", "");
         String ten = sharedPreferences.getString("tentv", "");
-        String pass = sharedPreferences.getString("matkhau", "");
-        String ltk = sharedPreferences.getString("loaitaikhoan", "");
-
-        tv_matt.setText(ma);
-        tv_ltk_tt.setText(ltk);
         edSDT_tt.setText(sdt);
         edEmail_tt.setText(email);
         edUser_tt.setText(ten);
-        edPass_tt.setText(pass);
 
         btn_Up_tt.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(getContext(), "Chức năng đang cập nhật", Toast.LENGTH_SHORT).show();
-                dialog.dismiss();
+                String sdt = edSDT_tt.getText().toString();
+                String email = edEmail_tt.getText().toString();
+                String user = edUser_tt.getText().toString();
+                ThanhVien_model_du1 tv = new ThanhVien_model_du1();
+                tv.setMatv(tv.getMatv());
+                tv.setSdt(sdt);
+                tv.setEmail(email);
+                tv.setTentv(user);
+                int check = thanhVien_dao_du1.capNhatThanhVien(tv);
+                if (check > 0){
+                    list_tv.clear();
+                    list_tv.addAll(thanhVien_dao_du1.getDSThanhVien());
+                    adt.notifyDataSetChanged();
+                    Toast.makeText(getContext(), "Cập nhật thành công", Toast.LENGTH_SHORT).show();
+                } else {
+                    Toast.makeText(getContext(), "Cập nhật không thành công", Toast.LENGTH_SHORT).show();
+                }
             }
         });
 

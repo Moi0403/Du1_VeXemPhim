@@ -3,10 +3,29 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical"
     android:layout_width="300dp"
-    android:layout_height="450dp"
+    android:layout_height="600dp"
     android:layout_gravity="center"
     android:background="@drawable/botron">
 
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:text="Đặt vé"
+        android:textSize="20dp"
+        android:gravity="center"/>
+    <ImageView
+        android:id="@+id/img_anhphim_dv"
+        android:layout_gravity="center"
+        android:layout_width="60dp"
+        android:layout_height="80dp"/>
+
+    <EditText
+        android:id="@+id/ed_anhp"
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:inputType="text"
+        android:lines="1"
+        android:background="@drawable/shape" />
 
         <LinearLayout
             android:orientation="horizontal"

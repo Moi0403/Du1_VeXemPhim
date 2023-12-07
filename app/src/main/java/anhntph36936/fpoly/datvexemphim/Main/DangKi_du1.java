@@ -36,16 +36,23 @@ public class DangKi_du1 extends AppCompatActivity {
                 String email = edEmailDK.getText().toString();
                 String user = edUserDK.getText().toString();
                 String pass = edPassDK.getText().toString();
-                checkRong(edEmailDK);
-                checkRong(edSdtDK);
-                checkRong(edUserDK);
-                checkRong(edPassDK);
 
-                boolean check = thanhVien_dao_du1.themThanhVien(sdt, email, user, pass, "khachhang");
-                if(check == true){
-                    Toast.makeText(DangKi_du1.this, "Đăng kí thành công !", Toast.LENGTH_SHORT).show();
+
+                if (sdt.equals("") || email.equals("") || user.equals("") || pass.equals("")){
+                    checkRong(edEmailDK);
+                    checkRong(edSdtDK);
+                    checkRong(edUserDK);
+                    checkRong(edPassDK);
+                } else if (thanhVien_dao_du1.checkDangKi(sdt, email)){
+                    Toast.makeText(DangKi_du1.this, "Tài khoản đã tồn tại", Toast.LENGTH_SHORT).show();
                 } else {
-                    Toast.makeText(DangKi_du1.this, "Đăng kí không thành công !", Toast.LENGTH_SHORT).show();
+                    boolean check = thanhVien_dao_du1.themThanhVien(sdt, email, user, pass, "khachhang");
+                    if(check == true){
+                        Toast.makeText(DangKi_du1.this, "Đăng kí thành công !", Toast.LENGTH_SHORT).show();
+                        finish();
+                    } else {
+                        Toast.makeText(DangKi_du1.this, "Đăng kí không thành công !", Toast.LENGTH_SHORT).show();
+                    }
                 }
 
             }
@@ -54,6 +61,7 @@ public class DangKi_du1 extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(DangKi_du1.this, DangNhap_du1.class));
+                finish();
             }
         });
     }
@@ -64,5 +72,9 @@ public class DangKi_du1 extends AppCompatActivity {
             editText.setError("Vui lòng không để trống !");
         }
         return  false;
+    }
+    public void onBackPressed() {
+        // Không cho phép quay lại
+        // super.onBackPressed(); // Bỏ comment dòng này nếu muốn cho phép quay lại
     }
 }
