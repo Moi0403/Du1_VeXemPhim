@@ -21,6 +21,7 @@ import anhntph36936.fpoly.datvexemphim.Frag_Adm_du1.Frag_Adm_Phim_du1;
 import anhntph36936.fpoly.datvexemphim.Frag_Adm_du1.Frag_Adm_QLTK_du1;
 import anhntph36936.fpoly.datvexemphim.Frag_Adm_du1.Frag_Adm_QLTL_du1;
 import anhntph36936.fpoly.datvexemphim.Frag_Adm_du1.Frag_Adm_QLXC_du1;
+import anhntph36936.fpoly.datvexemphim.Frag_Adm_du1.Frag_Adm_ThongKe_du1;
 import anhntph36936.fpoly.datvexemphim.Frag_Adm_du1.Frag_Adm_Trangchu_du1;
 import anhntph36936.fpoly.datvexemphim.R;
 
@@ -62,6 +63,8 @@ public class Main_Adm_du1 extends AppCompatActivity {
                     fm.beginTransaction().replace(R.id.framelayout, new Frag_Adm_QLTL_du1()).commit();
                 } else if (item.getItemId() == R.id.mXuatChieu) {
                     fm.beginTransaction().replace(R.id.framelayout, new Frag_Adm_QLXC_du1()).commit();
+                } else if (item.getItemId() == R.id.mThongke) {
+                    fm.beginTransaction().replace(R.id.framelayout, new Frag_Adm_ThongKe_du1()).commit();
                 } else if (item.getItemId() == R.id.mDoiMK) {
                     fm.beginTransaction().replace(R.id.framelayout, new Frag_Adm_DMK_du1()).commit();
                 } else if (item.getItemId() == R.id.mThoat) {

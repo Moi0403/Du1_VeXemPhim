@@ -97,6 +97,8 @@ public class KH_ADT_Phim extends RecyclerView.Adapter<KH_ADT_Phim.ViewHolder>{
                 TextView txtTheLoai = view.findViewById(R.id.txtTheLoai);
                 TextView txtTime = view.findViewById(R.id.txtTim);
                 TextView txtSelectday = view.findViewById(R.id.txtSelectday);
+                CheckBox cbdd = view.findViewById(R.id.idckdd);
+                cbdd.setButtonTintList(ColorStateList.valueOf(Color.RED));
                 txtgia = view.findViewById(R.id.txtgia);
                 txtsl = view.findViewById(R.id.txtsl);
                 A1 = view.findViewById(R.id.A1);
@@ -128,7 +130,7 @@ public class KH_ADT_Phim extends RecyclerView.Adapter<KH_ADT_Phim.ViewHolder>{
                 txtTime.setText("" +list_p.get(position).getThoigianchieu());
                 txtSelectday.setText("" +list_p.get(position).getNgaychieu());
 
-//                ghechecked();
+                ghechecked();
                 Listener();
 
                 btn_dve_dv.setOnClickListener(new View.OnClickListener() {
@@ -215,11 +217,14 @@ public class KH_ADT_Phim extends RecyclerView.Adapter<KH_ADT_Phim.ViewHolder>{
         list_ve = vedao.getDSVe();
         ArrayList<String> listghe = new ArrayList<>();
 
-//        for (Ve_model_du1 veModeldu1 : list_ve) {
-//            listghe.add(String.format("%s", veModeldu1.getSoghe()) + veModeldu1.getThoigian());
-//        }
+        for (Ve_model_du1 veModeldu1 : list_ve) {
+            if (veModeldu1 != null){
+                String ghe = String.format("%s", veModeldu1.getSoghe());
+                listghe.add(ghe);
+            }
+        }
         for (int i = 0; i < listghe.size(); i++) {
-            if (listghe.get(i).contains("A1") && listghe.get(i).contains(gio)) {
+            if (listghe.get(i).contains("A1")) {
                 A1.setEnabled(false);
                 A1.setTextColor(Color.RED);
                 A1.setButtonTintList(ColorStateList.valueOf(Color.RED));
@@ -228,7 +233,7 @@ public class KH_ADT_Phim extends RecyclerView.Adapter<KH_ADT_Phim.ViewHolder>{
             }
         }
         for (int i = 0; i < listghe.size(); i++) {
-            if (listghe.get(i).contains("A2") && listghe.get(i).contains(gio)) {
+            if (listghe.get(i).contains("A2")) {
                 A2.setEnabled(false);
                 A2.setTextColor(Color.RED);
                 A2.setButtonTintList(ColorStateList.valueOf(Color.RED));
@@ -237,7 +242,7 @@ public class KH_ADT_Phim extends RecyclerView.Adapter<KH_ADT_Phim.ViewHolder>{
             }
         }
         for (int i = 0; i < listghe.size(); i++) {
-            if (listghe.get(i).contains("A3") && listghe.get(i).contains(gio)) {
+            if (listghe.get(i).contains("A3")) {
                 A3.setEnabled(false);
                 A3.setTextColor(Color.RED);
                 A3.setButtonTintList(ColorStateList.valueOf(Color.RED));
@@ -246,7 +251,7 @@ public class KH_ADT_Phim extends RecyclerView.Adapter<KH_ADT_Phim.ViewHolder>{
             }
         }
         for (int i = 0; i < listghe.size(); i++) {
-            if (listghe.get(i).contains("A4") && listghe.get(i).contains(gio)) {
+            if (listghe.get(i).contains("A4")) {
                 A4.setEnabled(false);
                 A4.setTextColor(Color.RED);
                 A4.setButtonTintList(ColorStateList.valueOf(Color.RED));
@@ -255,7 +260,7 @@ public class KH_ADT_Phim extends RecyclerView.Adapter<KH_ADT_Phim.ViewHolder>{
             }
         }
         for (int i = 0; i < listghe.size(); i++) {
-            if (listghe.get(i).contains("B1") && listghe.get(i).contains(gio)) {
+            if (listghe.get(i).contains("B1")) {
                 B1.setEnabled(false);
                 B1.setTextColor(Color.RED);
                 B1.setButtonTintList(ColorStateList.valueOf(Color.RED));
@@ -264,7 +269,7 @@ public class KH_ADT_Phim extends RecyclerView.Adapter<KH_ADT_Phim.ViewHolder>{
             }
         }
         for (int i = 0; i < listghe.size(); i++) {
-            if (listghe.get(i).contains("B2") && listghe.get(i).contains(gio)) {
+            if (listghe.get(i).contains("B2")) {
                 B2.setEnabled(false);
                 B2.setTextColor(Color.RED);
                 B2.setButtonTintList(ColorStateList.valueOf(Color.RED));
@@ -273,7 +278,7 @@ public class KH_ADT_Phim extends RecyclerView.Adapter<KH_ADT_Phim.ViewHolder>{
             }
         }
         for (int i = 0; i < listghe.size(); i++) {
-            if (listghe.get(i).contains("B3") && listghe.get(i).contains(gio)) {
+            if (listghe.get(i).contains("B3")) {
                 B3.setEnabled(false);
                 B3.setTextColor(Color.RED);
                 B3.setButtonTintList(ColorStateList.valueOf(Color.RED));
@@ -282,7 +287,7 @@ public class KH_ADT_Phim extends RecyclerView.Adapter<KH_ADT_Phim.ViewHolder>{
             }
         }
         for (int i = 0; i < listghe.size(); i++) {
-            if (listghe.get(i).contains("B4") && listghe.get(i).contains(gio)) {
+            if (listghe.get(i).contains("B4")) {
                 B4.setEnabled(false);
                 B4.setTextColor(Color.RED);
                 B4.setButtonTintList(ColorStateList.valueOf(Color.RED));
@@ -291,7 +296,7 @@ public class KH_ADT_Phim extends RecyclerView.Adapter<KH_ADT_Phim.ViewHolder>{
             }
         }
         for (int i = 0; i < listghe.size(); i++) {
-            if (listghe.get(i).contains("C1") && listghe.get(i).contains(gio)) {
+            if (listghe.get(i).contains("C1")) {
                 C1.setEnabled(false);
                 C1.setTextColor(Color.RED);
                 C1.setButtonTintList(ColorStateList.valueOf(Color.RED));
@@ -300,7 +305,7 @@ public class KH_ADT_Phim extends RecyclerView.Adapter<KH_ADT_Phim.ViewHolder>{
             }
         }
         for (int i = 0; i < listghe.size(); i++) {
-            if (listghe.get(i).contains("C2") && listghe.get(i).contains(gio)) {
+            if (listghe.get(i).contains("C2")) {
                 C2.setEnabled(false);
                 C2.setTextColor(Color.RED);
                 C2.setButtonTintList(ColorStateList.valueOf(Color.RED));
@@ -309,7 +314,7 @@ public class KH_ADT_Phim extends RecyclerView.Adapter<KH_ADT_Phim.ViewHolder>{
             }
         }
         for (int i = 0; i < listghe.size(); i++) {
-            if (listghe.get(i).contains("C3") && listghe.get(i).contains(gio)) {
+            if (listghe.get(i).contains("C3")) {
                 C3.setEnabled(false);
                 C3.setTextColor(Color.RED);
                 C3.setButtonTintList(ColorStateList.valueOf(Color.RED));
@@ -318,7 +323,7 @@ public class KH_ADT_Phim extends RecyclerView.Adapter<KH_ADT_Phim.ViewHolder>{
             }
         }
         for (int i = 0; i < listghe.size(); i++) {
-            if (listghe.get(i).contains("C4") && listghe.get(i).contains(gio)) {
+            if (listghe.get(i).contains("C4")) {
                 C4.setEnabled(false);
                 C4.setTextColor(Color.RED);
                 C4.setButtonTintList(ColorStateList.valueOf(Color.RED));
@@ -327,7 +332,7 @@ public class KH_ADT_Phim extends RecyclerView.Adapter<KH_ADT_Phim.ViewHolder>{
             }
         }
         for (int i = 0; i < listghe.size(); i++) {
-            if (listghe.get(i).contains("D1") && listghe.get(i).contains(gio)) {
+            if (listghe.get(i).contains("D1")) {
                 D1.setEnabled(false);
                 D1.setTextColor(Color.RED);
                 D1.setButtonTintList(ColorStateList.valueOf(Color.RED));
@@ -336,7 +341,7 @@ public class KH_ADT_Phim extends RecyclerView.Adapter<KH_ADT_Phim.ViewHolder>{
             }
         }
         for (int i = 0; i < listghe.size(); i++) {
-            if (listghe.get(i).contains("D2") && listghe.get(i).contains(gio)) {
+            if (listghe.get(i).contains("D2")) {
                 D2.setEnabled(false);
                 D2.setTextColor(Color.RED);
                 D2.setButtonTintList(ColorStateList.valueOf(Color.RED));
@@ -345,7 +350,7 @@ public class KH_ADT_Phim extends RecyclerView.Adapter<KH_ADT_Phim.ViewHolder>{
             }
         }
         for (int i = 0; i < listghe.size(); i++) {
-            if (listghe.get(i).contains("D3") && listghe.get(i).contains(gio)) {
+            if (listghe.get(i).contains("D3")) {
                 D3.setEnabled(false);
                 D3.setTextColor(Color.RED);
                 D3.setButtonTintList(ColorStateList.valueOf(Color.RED));
@@ -354,7 +359,7 @@ public class KH_ADT_Phim extends RecyclerView.Adapter<KH_ADT_Phim.ViewHolder>{
             }
         }
         for (int i = 0; i < listghe.size(); i++) {
-            if (listghe.get(i).contains("D4") && listghe.get(i).contains(gio)) {
+            if (listghe.get(i).contains("D4")) {
                 D4.setEnabled(false);
                 D4.setTextColor(Color.RED);
                 D4.setButtonTintList(ColorStateList.valueOf(Color.RED));

@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="300dp"
+    android:layout_height="200dp"
+    android:layout_gravity="center"
+    android:padding="10dp"
+    android:orientation="vertical"
+    android:background="@drawable/botron">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:text="Xác nhận thanh toán"
+        android:textColor="#ff00"
+        android:textStyle="bold"
+        android:textSize="20dp"
+        android:gravity="center"/>
+
+         <TextView
+             android:id="@+id/tv_tt_tt"
+             android:layout_width="match_parent"
+             android:layout_height="50dp"
+             android:layout_marginTop="20dp"
+             android:background="@drawable/shape"
+             android:gravity="center"
+             android:textStyle="bold"
+             android:textColor="#ff00"
+             android:layout_gravity="center"
+             android:text="Tông tien"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginTop="20dp">
+
+        <Button
+            android:id="@+id/btn_huy_tt"
+            android:layout_width="120dp"
+            android:layout_height="match_parent"
+            android:text="Hủy"
+            android:textStyle="bold"/>
+        <Button
+            android:id="@+id/btn_xn_tt"
+            android:layout_width="120dp"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="40dp"
+            android:text="Xác nhận"
+            android:textStyle="bold"/>
+    </LinearLayout>
+
+</LinearLayout>

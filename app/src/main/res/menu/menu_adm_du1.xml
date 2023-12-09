@@ -18,6 +18,9 @@
                 <item android:id="@+id/mXuatChieu"
                     android:icon="@drawable/xuatchieu"
                     android:title="Quản Lý Xuất Chiếu" />
+                <item android:id="@+id/mThongke"
+                    android:icon="@drawable/thongke"
+                    android:title="Thống kê"/>
                 <item android:id="@+id/mDoiMK"
                     android:icon="@drawable/dmk"
                     android:title="Đổi Mật Khẩu" />

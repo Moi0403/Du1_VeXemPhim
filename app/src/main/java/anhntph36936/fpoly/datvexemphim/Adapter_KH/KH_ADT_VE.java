@@ -1,5 +1,6 @@
 package anhntph36936.fpoly.datvexemphim.Adapter_KH;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -19,6 +20,7 @@ import com.squareup.picasso.Picasso;
 import java.util.ArrayList;
 
 import anhntph36936.fpoly.datvexemphim.DAO.Ve_Dao_du1;
+import anhntph36936.fpoly.datvexemphim.Frag_KhachHang_du1.Frag_KH_VE_du1;
 import anhntph36936.fpoly.datvexemphim.Model.Ve_model_du1;
 import anhntph36936.fpoly.datvexemphim.R;
 
@@ -27,6 +29,8 @@ public class KH_ADT_VE extends RecyclerView.Adapter<KH_ADT_VE.ViewHolder> {
     ArrayList<Ve_model_du1> list_ve;
     Ve_Dao_du1 vedao;
     int sl =0;
+    int sum = 0;
+    Frag_KH_VE_du1 frag_kh_ve_du1;
     TextView txtgia;
     CheckBox cktt;
 
@@ -45,7 +49,7 @@ public class KH_ADT_VE extends RecyclerView.Adapter<KH_ADT_VE.ViewHolder> {
     }
 
     @Override
-    public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull ViewHolder holder, @SuppressLint("RecyclerView") int position) {
         Ve_model_du1 ve_model_du1 = list_ve.get(position);
 
         Picasso.get()
@@ -76,14 +80,19 @@ public class KH_ADT_VE extends RecyclerView.Adapter<KH_ADT_VE.ViewHolder> {
         holder.cbtt.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                int tien = list_ve.get(position).getGia();
-                checkgia(tien);
+                String outTongtien =  "";
+                if (isChecked){
+                    sum += list_ve.get(position).getGia();
+                    sl++;
+                } else {
+                    sum -= list_ve.get(position).getGia();
+                    sl--;
+                }
+                outTongtien = String.format("" +sum+ ".000 đ");
+                frag_kh_ve_du1.txtGia_vett.setText(outTongtien);
             }
         });
-
-
     }
-
     @Override
     public int getItemCount() {
         return list_ve.size();
@@ -106,18 +115,5 @@ public class KH_ADT_VE extends RecyclerView.Adapter<KH_ADT_VE.ViewHolder> {
             cbtt = itemView.findViewById(R.id.cbtt_ve);
 
         }
-    }
-    public void checkgia(int tien){
-        int i = 0;
-        String gia = list_ve.get(i).getGia() +".000 đ";
-        Toast.makeText(context ,"" +gia, Toast.LENGTH_SHORT).show();
-    }
-    public void tang(){
-        ++sl;
-        checkgia(sl);
-    }
-    public void giam(){
-        --sl;
-        checkgia(sl);
     }
 }

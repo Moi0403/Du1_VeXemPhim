@@ -51,6 +51,17 @@ public class Ve_Dao_du1 {
             return true;
         }
     }
+    public int tongtien(){
+        int tongtien = 0;
+        SQLiteDatabase sqLiteDatabase = dbHelperDu1.getWritableDatabase();
+        Cursor cursor = sqLiteDatabase.rawQuery("SELECT SUM(v.soluong * v.gia) as TONGTIEN FROM VE", null);
+        if (cursor.getCount() !=0){
+            cursor.moveToFirst();
+            tongtien = cursor.getInt(0);
+        }
+        return tongtien;
+
+    }
      public ArrayList<Ve_model_du1> getDSVe(){
         ArrayList<Ve_model_du1> list_ve = new ArrayList<>();
         SQLiteDatabase sqLiteDatabase = dbHelperDu1.getReadableDatabase();
